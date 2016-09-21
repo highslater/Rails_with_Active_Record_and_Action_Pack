@@ -4,7 +4,7 @@ $ cd todolists/
 $ bundle
 $ rails generate rspec:install
 --format documentation
-
+```shell
 $ rspec -e rq01
 Assignment
   rq01
@@ -87,7 +87,7 @@ Assignment
         should respond to #created_at
         should respond to #updated_at
 11 examples, 0 failures
-
+```
 class CreateProfiles < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
