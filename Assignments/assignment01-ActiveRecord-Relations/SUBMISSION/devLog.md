@@ -45,6 +45,8 @@ Assignment
         should respond to #updated_at
 6 examples, 0 failures
 ```
+
+```ruby
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
@@ -59,6 +61,8 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :todo_lists
 end
+```
+
 ```shell
 $ rails generate model Profile gender:string birth_year:integer first_name:string last_name:string user:references
 Running via Spring preloader in process 7142
