@@ -1,8 +1,9 @@
-
+```shell
 $ rails new todolists
 $ cd todolists/
 $ bundle
 $ rails generate rspec:install
+```
 --format documentation
 ```shell
 $ rspec -e rq01
@@ -104,7 +105,7 @@ end
 class Profile < ActiveRecord::Base
   belongs_to :user
 end
-
+```shell
 $ rails generate model TodoList list_name:string list_due_date:date
 Running via Spring preloader in process 8157
       invoke  active_record
@@ -132,7 +133,7 @@ Assignment
       should respond to #created_at
       should respond to #updated_at
 6 examples, 0 failures
-
+```
 class CreateTodoLists < ActiveRecord::Migration
   def change
     create_table :todo_lists do |t|
@@ -147,7 +148,7 @@ class TodoList < ActiveRecord::Base
   belongs_to :user
   has_many :todo_items, dependent: :destroy
 end
-
+```shell
 $ rails generate migration AddUserToTodoList user:references
 Running via Spring preloader in process 8968
       invoke  active_record
@@ -165,13 +166,13 @@ Assignment
     TodoList has a many:1 belongs_to relationship with User
     User has a 1:many has_many relationship with TodoList
 2 examples, 0 failures
-
+```
 class AddUserToTodoList < ActiveRecord::Migration
   def change
     add_reference :todo_lists, :user, index: true, foreign_key: true
   end
 end
-
+```shell
 $ rails generate model TodoItem due_date:date title:string description:text completed:boolean todo_list:references
 Running via Spring preloader in process 10488
       invoke  active_record
@@ -204,7 +205,7 @@ Assignment
       should respond to #created_at
       should respond to #updated_at
 11 examples, 0 failures
-
+```
 class CreateTodoItems < ActiveRecord::Migration
   def change
     create_table :todo_items do |t|
@@ -221,26 +222,26 @@ end
 class TodoItem < ActiveRecord::Base
   belongs_to :todo_list
 end
-
+```shell
 $ rake db:migrate
 
 $ rspec -e rq07
 All examples were filtered out
 0 examples, 0 failures
-
+```
 class User < ActiveRecord::Base
   has_one :profile
   has_many :todo_lists
   has_many :todo_items, through: :todo_lists, source: :todo_items
 end
-
+```shell
 $ rspec -e rq08
 Assignment
   rq08
     User has a 1:many relationship with TodoItem
     User has a 1:many relationship with TodoItem through TodoList
 2 examples, 0 failures
-
+```
 
 User.destroy_all
 Profile.destroy_all
@@ -287,6 +288,7 @@ TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", des
 TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", description: "an arbitrary description", todo_list_id: td4.id, completed: false)
 TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", description: "an arbitrary description", todo_list_id: td4.id, completed: true)
 
+
 $ rspec -e rq09
 Assignment
   rq09
@@ -297,6 +299,7 @@ Assignment
       must have TodoList set up as directed
       must have TodoItems set up as directed
 5 examples, 0 failures
+
 
 class TodoList < ActiveRecord::Base
   belongs_to :user
@@ -309,12 +312,14 @@ class TodoItem < ActiveRecord::Base
   default_scope {order :due_date}
 end
 
+```shell
 $ rspec -e rq10
 Assignment
   rq10
     Default scope on TodoItem should result in collection in ascending order by due_date
     Default scope on TodoList should result in collection in ascending order by list_due_date
 2 examples, 0 failures
+```
 
 class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
@@ -340,6 +345,7 @@ class Profile < ActiveRecord::Base
   end
 end
 
+```shell
 $ rspec -e rq11
 Assignment
   rq11
@@ -361,4 +367,4 @@ Assignment
       Cascading delete is represented in model dependencies
       User delete must cascade delete to Profile, TodoList and TodoItems
 2 examples, 0 failures
-
+```
