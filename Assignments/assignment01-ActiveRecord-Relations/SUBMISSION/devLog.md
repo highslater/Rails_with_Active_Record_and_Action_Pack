@@ -312,7 +312,9 @@ TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", des
 TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", description: "an arbitrary description", todo_list_id: td4.id, completed: true)
 ```
 
-```shell
+
+
+```text 
 $ rspec -e rq09
 Assignment
   rq09
@@ -339,6 +341,7 @@ class TodoItem < ActiveRecord::Base
 end
 ```
 
+
 ```shell
 $ rspec -e rq10
 Assignment
@@ -347,6 +350,7 @@ Assignment
     Default scope on TodoList should result in collection in ascending order by list_due_date
 2 examples, 0 failures
 ```
+
 
 ```ruby
 class User < ActiveRecord::Base
