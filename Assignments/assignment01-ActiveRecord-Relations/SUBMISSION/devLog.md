@@ -4,7 +4,11 @@ $ cd todolists/
 $ bundle
 $ rails generate rspec:install
 ```
+
+```shell
 --format documentation
+```
+
 ```shell
 $ rspec -e rq01
 Assignment
@@ -40,7 +44,7 @@ Assignment
         should respond to #created_at
         should respond to #updated_at
 6 examples, 0 failures
-
+```
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
@@ -55,7 +59,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :todo_lists
 end
-
+```shell
 $ rails generate model Profile gender:string birth_year:integer first_name:string last_name:string user:references
 Running via Spring preloader in process 7142
       invoke  active_record
@@ -310,11 +314,11 @@ TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", des
 TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", description: "an arbitrary description", todo_list_id: td4.id, completed: true)
 TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", description: "an arbitrary description", todo_list_id: td4.id, completed: false)
 TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", description: "an arbitrary description", todo_list_id: td4.id, completed: true)
+
 ```
 
 
-
-```text 
+```
 $ rspec -e rq09
 Assignment
   rq09
