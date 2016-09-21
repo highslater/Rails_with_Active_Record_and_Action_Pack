@@ -312,7 +312,7 @@ TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", des
 TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", description: "an arbitrary description", todo_list_id: td4.id, completed: true)
 ```
 
-```
+```shell
 $ rspec -e rq09
 Assignment
   rq09
@@ -324,7 +324,6 @@ Assignment
       must have TodoItems set up as directed
 5 examples, 0 failures
 ```
-
 
 
 ```ruby
