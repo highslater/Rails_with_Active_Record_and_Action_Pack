@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   has_many :todo_items, through: :todo_lists, source: :todo_items
   validates :username, presence: true
 
-
   def get_completed_count()
     # self.todo_items.where(completed: "t").count
     # TodoItem.where(todo_list_id: 363).each {|t| puts t.completed}
@@ -18,7 +17,4 @@ class User < ActiveRecord::Base
     todo_items.where("completed = ?", "t").count
     #return 42
   end
-
-
-
 end
