@@ -384,7 +384,14 @@ describe "Assignment" do
           if (birthYear <= testYear)
             testCount = testCount + 1
           end
-          profile = Profile.create(:user_id=>user.id, :gender=>"male", :birth_year=>birthYear, :first_name=>"User #{i}", :last_name=>"Smith#{i}")
+          # profile = is not required that is why the error highlighting
+          profile = Profile.create(
+            :user_id=>user.id,
+            :gender=>"male",
+            :birth_year=>birthYear,
+            :first_name=>"User #{i}",
+            :last_name=>"Smith#{i}"
+          )
         end
         profileGroup = Profile.get_all_profiles(startYear, testYear)
         expect(profileGroup.length).to be(testCount)
