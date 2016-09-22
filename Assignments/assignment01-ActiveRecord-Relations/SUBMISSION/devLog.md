@@ -322,20 +322,6 @@ TodoItem.create(due_date: Date.today + 1.year , title: "an arbitrary title", des
 ```
 
 
-```
-$ rspec -e rq09
-Assignment
-  rq09
-    check seed file
-      has a file for seeding the database
-      must have Users with lastnames for usernames as directed in assignment
-      must have Profiles set up for each user with the given data
-      must have TodoList set up as directed
-      must have TodoItems set up as directed
-5 examples, 0 failures
-```
-
-
 ```ruby
 class TodoList < ActiveRecord::Base
   belongs_to :user
@@ -347,6 +333,21 @@ class TodoItem < ActiveRecord::Base
   belongs_to :todo_list
   default_scope {order :due_date}
 end
+
+```
+
+
+```
+$ rspec -e rq09
+Assignment
+  rq09
+    check seed file
+      has a file for seeding the database
+      must have Users with lastnames for usernames as directed in assignment
+      must have Profiles set up for each user with the given data
+      must have TodoList set up as directed
+      must have TodoItems set up as directed
+5 examples, 0 failures
 ```
 
 
