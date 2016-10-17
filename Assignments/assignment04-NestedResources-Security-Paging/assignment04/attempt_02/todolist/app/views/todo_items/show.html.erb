@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Title:</strong>
+  <%= @todo_list.todo_items.find(params[:id]).title %>
+</p>
+<p>
+  <strong>Due date:</strong>
+  <%= @todo_list.todo_items.find(params[:id]).due_date %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @todo_list.todo_items.find(params[:id]).description %>
+</p>
+<p>
+  <strong>Completed:</strong>
+  <%= @todo_list.todo_items.find(params[:id]).completed %>
+</p>
+<%= link_to 'Edit', edit_todo_list_todo_item_path(@todo_list, @todo_item) %> |
+  <%= link_to 'Back', @todo_list %>
